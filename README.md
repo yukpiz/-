@@ -9,3 +9,8 @@
 | 2018-06-16 |   |
 | 2018-06-23 |   |
 | 2018-06-30 |   |
+
+
+# Notes
+
+* 和文SICP https://sicp.iijlab.net/fulltext/xcont.html
