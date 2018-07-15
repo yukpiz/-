@@ -3,12 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>vimtutor</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -51,14 +56,14 @@ WARNING
 <section class="slide level1">
 
 <figure>
-<img src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
+<img data-src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
 </figure>
 <ul>
 <li>Twitter/Github</li>
-<li>golang/vim/crypko</li>
-<li>#Fishing #Anime #小型船舶操縦士1級</li>
 <li>redish Inc(Engineer)</li>
+<li>#golang #vim #crypko</li>
 <li>#AWS #Rails #Angular #Android</li>
+<li>#Fishing #Anime #小型船舶操縦士1級</li>
 </ul>
 </section>
 <section class="slide level1">
@@ -164,6 +169,8 @@ Company Vision: 全ての繋がりを価値あるモノに</p>
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -175,7 +182,7 @@ Company Vision: 全ての繋がりを価値あるモノに</p>
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

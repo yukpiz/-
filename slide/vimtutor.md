@@ -27,10 +27,10 @@
 ![yukpiz](https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg)
 
 * Twitter/Github
-* golang/vim/crypko
-* \#Fishing #Anime #小型船舶操縦士1級
 * redish Inc(Engineer)
+* \#golang #vim #crypko
 * \#AWS #Rails #Angular #Android
+* \#Fishing #Anime #小型船舶操縦士1級
 
 - - -
 
