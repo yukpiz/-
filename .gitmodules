@@ -1,0 +1,3 @@
+[submodule "slide/reveal.js"]
+	path = slide/reveal.js
+	url = https://github.com/hakimel/reveal.js.git
