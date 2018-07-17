@@ -104,29 +104,20 @@ Company Vision: 全ての繋がりを価値あるモノに
 * あなたも*.vimできます
 </div>
 
+- - -
+
+<div style="font-size:80pt;">+job</div>
 
 - - -
 
-## まずは始めよう
-
-- - -
-
-* ターミナルとエディタでの開発かっこいいと思った
-* どんな環境もvimでやろうとした、でも結果的に時間の無駄だった(.NET FrameworkとかUnityとかiOSとか)
-* 普段のメモ取り、趣味でのコード書き、configの変更とか
-* IDEへのキーマップの導入
-* あんまり難しいところにいくと挫折しがち
 
 
 - - -
 
-## 副作用
+<div style="font-size:80pt;">+lambda</div>
 
 - - -
 
-* 仕事してたはずなのに、気づいたらVimL書いてて納期遅れた
-* 友達が減った気がする
-
+<div style="font-size:80pt;">+channel</div>
 
 - - -
-
