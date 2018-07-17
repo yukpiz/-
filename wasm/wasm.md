@@ -77,6 +77,18 @@ https://webassembly.studio/
 http://blog.qt.io/blog/2018/05/22/qt-for-webassembly/  
 
 
+## MDN web docs
+
+ここからはMDN web docsを参考にしつつ理解を深めていく  
+まずはEmscriptenをインストールしてみる  
+cmakeないとダメ``sudo apt-get install cmake``  
+
+
+```
+$ git clone https://github.com/juj/emsdk.git; cd emsdk
+$ ./emsdk install --build=Release sdk-incoming-64bit binaryen-master-64bit
+$ ./emsdk activate --global --build=Release sdk-incoming-64bit binaryen-master-64bit
+```
 
 
 
