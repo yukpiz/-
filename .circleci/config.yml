@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  deploy:
+  build:
     docker:
       - image: jumanjiman/aws:latest
     working_directory: ~/yukpiz
@@ -11,9 +11,3 @@ jobs:
       - run type aws
       - run cat /etc/lsb-release
       - run echo "(／・ω・)／にゃー！"
-
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - deploy:
