@@ -2,11 +2,11 @@ version: 2
 jobs:
   deploy:
     docker:
-      - image: jumanjiman/aws:latest
+      - image: governmentpaas/awscli:latest
     working_directory: ~/yukpiz
     steps:
       - checkout
-      - run: sudo apk add git
+      - run: apk add git
       - run: git submodule update --init --recursive
       - run: echo "(」・ω・)」うー！"
       - run: aws s3 cp ./slide/outputs/ s3://yukpiz/ --exclude "*" --include "*.html"
