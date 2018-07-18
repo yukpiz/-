@@ -1,7 +1,21 @@
 version: 2
 jobs:
-  build:
+  deploy:
     docker:
       - image: jumanjiman/aws:latest
+    working_directory: ~/yukpiz
     steps:
-      - run: echo "hoge"
+      - checkout
+      - run echo "(」・ω・)」うー！"
+      - run pwd
+      - run type aws
+      - run cat /etc/lsb-release
+      - run echo "(／・ω・)／にゃー！"
+
+workflows:
+  version: 2
+  jobs:
+    - deploy:
+      filters:
+        branches:
+          only: master
