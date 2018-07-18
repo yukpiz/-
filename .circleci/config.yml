@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: echo "(」・ω・)」うー！"
-      - run: aws --region ap-northeast-2 s3 sync ./slide/outputs/ --exclude "*" --include "*.html"
+      - run: aws s3 sync ./slide/outputs/ --exclude "*" --include "*.html"
       - run: pwd
       - run: ls
       - run: echo "(／・ω・)／にゃー！"
