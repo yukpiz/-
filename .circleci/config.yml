@@ -5,11 +5,8 @@ jobs:
       - image: jumanjiman/aws:latest
     working_directory: ~/yukpiz
     steps:
-      - run:
-        name: test
-        command: |
-          echo "(」・ω・)」うー！"
-          pwd
-          type aws
-          cat /etc/lsb-release
-          echo "(／・ω・)／にゃー！"
+      - run echo "(」・ω・)」うー！"
+        #pwd
+        #"type aws
+        #  cat /etc/lsb-release
+        #  echo "(／・ω・)／にゃー！"
