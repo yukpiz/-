@@ -14,3 +14,7 @@
 # Notes
 
 * 和文SICP https://sicp.iijlab.net/fulltext/xcont.html
+
+# Slides
+
+[![CircleCI](https://circleci.com/gh/yukpiz/til.svg?style=svg)](https://circleci.com/gh/yukpiz/til)
