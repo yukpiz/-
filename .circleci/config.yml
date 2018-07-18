@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/yukpiz
     steps:
       - checkout
+      - git submodule update --init --recursive
       - run: echo "(」・ω・)」うー！"
       - run: aws s3 cp ./slide/outputs/ s3://yukpiz/ --exclude "*" --include "*.html"
       - run: aws s3 cp ./slide/reveal.js s3://yukpiz/ --recursive
