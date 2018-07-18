@@ -5,8 +5,5 @@ jobs:
       - image: jumanjiman/aws:latest
     working_directory: ~/yukpiz
     steps:
-      - run: echo "hoge"
-        #pwd
-        #"type aws
-        #  cat /etc/lsb-release
-        #  echo "(／・ω・)／にゃー！"
+      - run: echo "(」・ω・)」うー！"
+      - run: echo "(／・ω・)／にゃー！"
