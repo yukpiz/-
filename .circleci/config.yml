@@ -11,7 +11,10 @@ jobs:
       - run: git submodule update --init --recursive
       - run: echo "(」・ω・)」うー！"
       - run: aws s3 sync ./slide/outputs/ s3://yukpiz/ --exclude "*" --include "*.html"
-      - run: aws s3 sync ./slide/reveal.js/ s3://yukpiz/reveal.js/
+      - run: aws s3 sync ./slide/reveal.js/css/ s3://yukpiz/reveal.js/
+      - run: aws s3 sync ./slide/reveal.js/js/ s3://yukpiz/reveal.js/
+      - run: aws s3 sync ./slide/reveal.js/lib/ s3://yukpiz/reveal.js/
+      - run: aws s3 sync ./slide/reveal.js/plugin/ s3://yukpiz/reveal.js/
       - run: echo "(／・ω・)／にゃー！"
 
 workflows:
