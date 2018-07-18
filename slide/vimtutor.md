@@ -67,7 +67,7 @@ Company Vision: 全ての繋がりを価値あるモノに
 
 - - -
 
-<div style="font-size:80pt;">Vimのすすめ
+<div style="font-size:80pt;">Vimのすすめ</div>
 
 
 - - -
@@ -103,6 +103,10 @@ Company Vision: 全ての繋がりを価値あるモノに
 * Asakusa.vim
 * あなたも*.vimできます
 </div>
+
+- - -
+
+<div style="font-size:80pt;">最近のvim(8系)</div>
 
 - - -
 
