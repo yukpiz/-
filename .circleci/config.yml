@@ -5,7 +5,6 @@ jobs:
       - image: jumanjiman/aws:latest
     working_directory: ~/yukpiz
     steps:
-      - checkout
       - run:
         name: test
         command: |
