@@ -106,7 +106,11 @@ Company Vision: 全ての繋がりを価値あるモノに
 
 - - -
 
-<div style="font-size:80pt;">最近のvim(8系)</div>
+<div style="font-size:80pt;">最近のvim</div>
+
+- - -
+
+<div style="font-size:80pt;">vim.wasm</div>
 
 - - -
 
@@ -114,11 +118,27 @@ Company Vision: 全ての繋がりを価値あるモノに
 
 - - -
 
-
+<div style="font-size:80pt;">+lambda</div>
 
 - - -
 
-<div style="font-size:80pt;">+lambda</div>
+```vim
+echo has('lambda')
+
+let Lambda1 = {x, y -> x + y}
+echo Lambda1(1, 2)
+
+let Lambda2 = {-> 'Hello +lambda'}
+echo Lambda2()
+
+function! Lambda3()
+    let i = 1
+    return {x -> x + i}
+endfunction
+
+let L = Lambda3()
+echo L(3)
+```
 
 - - -
 

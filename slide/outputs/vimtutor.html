@@ -134,7 +134,13 @@ Vimのすすめ
 <section class="slide level1">
 
 <div style="font-size:80pt;">
-最近のvim(8系)
+最近のvim
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:80pt;">
+vim.wasm
 </div>
 </section>
 <section class="slide level1">
@@ -145,12 +151,25 @@ Vimのすすめ
 </section>
 <section class="slide level1">
 
-</section>
-<section class="slide level1">
-
 <div style="font-size:80pt;">
 +lambda
 </div>
+</section>
+<section class="slide level1">
+
+<pre class="vim"><code>let Lambda1 = {x, y -&gt; x + y}
+echo Lambda1(1, 2)
+
+let Lambda2 = {-&gt; &#39;Hello +lambda&#39;}
+echo Lambda2()
+
+function! Lambda3()
+    let i = 1
+    return {x -&gt; x + i}
+endfunction
+
+let L = Lambda3()
+echo L(4)</code></pre>
 </section>
 <section class="slide level1">
 
