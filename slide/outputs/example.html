@@ -3,17 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>example</title>
+  <title></title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -36,7 +31,7 @@
 <h1>Markdown support1</h1>
 <p>Write content using inline or external Markdown.<br />
 Basic simple sentences will be centered.</p>
-<p>Let’s start!</p>
+<p>Let's start!</p>
 </section>
 <section id="markdown-support2simple-list" class="slide level1">
 <h1>Markdown support2(Simple List)</h1>
@@ -93,8 +88,6 @@ Basic simple sentences will be centered.</p>
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -106,7 +99,7 @@ Basic simple sentences will be centered.</p>
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
