@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/yukpiz
     steps:
       - checkout
+      - run: apk update
       - run: apk add git
       - run: git submodule update --init --recursive
       - run: echo "(」・ω・)」うー！"
