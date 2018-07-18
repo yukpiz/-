@@ -8,3 +8,9 @@ jobs:
       - checkout
       - run: echo "(」・ω・)」うー！"
       - run: echo "(／・ω・)／にゃー！"
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy
