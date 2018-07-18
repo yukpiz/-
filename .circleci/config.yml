@@ -6,8 +6,11 @@ jobs:
     working_directory: ~/yukpiz
     steps:
       - checkout
-      - run echo "(」・ω・)」うー！"
-      - run pwd
-      - run type aws
-      - run cat /etc/lsb-release
-      - run echo "(／・ω・)／にゃー！"
+      - run:
+        name: test
+        command: |
+          echo "(」・ω・)」うー！"
+          pwd
+          type aws
+          cat /etc/lsb-release
+          echo "(／・ω・)／にゃー！"
