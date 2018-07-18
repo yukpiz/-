@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run: echo "(」・ω・)」うー！"
-      - pwd
-      - ls
+      - run: pwd
+      - run: ls
       - run: echo "(／・ω・)／にゃー！"
 
 workflows:
