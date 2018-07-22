@@ -88,7 +88,45 @@ cmakeないとダメ``sudo apt-get install cmake``
 $ git clone https://github.com/juj/emsdk.git; cd emsdk
 $ ./emsdk install --build=Release sdk-incoming-64bit binaryen-master-64bit
 $ ./emsdk activate --global --build=Release sdk-incoming-64bit binaryen-master-64bit
+$ source ./emsdk_env.sh
 ```
+
+*hello.c*  
+
+```c
+#include <stdio.h>
+
+int main(int argc, char ** argv) {
+    printf("Hello WebAssembly!\n");
+}
+```
+
+https://github.com/kripken/emscripten/issues/6012
+
+```
+$ emcc hello.c -s WASM=1 -o hello.html
+$ emrun hello.html
+```
+
+
+## Qt for WebAssembly
+
+```
+$ git clone -b wip/webassembly https://github.com/qt/qtbase.git
+$ git clone -b wip/webassembly https://code.qt.io/qt/qtdeclarative.git
+$ git clone -b wip/webassembly https://code.qt.io/qt/qtwebsockets.git
+
+$ cd qtbase
+$ ./configure -xplatform wasm-emscripten -developer-build -release -static -no-thread -nomake tests -nomake examples  -no-dbus -no-headersclean -system-libpng -no-ssl -no-warnings-are-errors
+$ sudo make
+```
+
+* rootでactivateし直す
+* source ./emsdk_env.shする
+* type em++できればOK
+
+
+
 
 
 

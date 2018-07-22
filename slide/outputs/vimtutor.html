@@ -3,17 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>vimtutor</title>
+  <title></title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -56,7 +51,7 @@ WARNING
 <section class="slide level1">
 
 <figure>
-<img data-src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
+<img src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
 </figure>
 <ul>
 <li>Twitter/Github</li>
@@ -157,7 +152,9 @@ vim.wasm
 </section>
 <section class="slide level1">
 
-<pre class="vim"><code>let Lambda1 = {x, y -&gt; x + y}
+<pre class="vim"><code>echo has(&#39;lambda&#39;)
+
+let Lambda1 = {x, y -&gt; x + y}
 echo Lambda1(1, 2)
 
 let Lambda2 = {-&gt; &#39;Hello +lambda&#39;}
@@ -169,7 +166,7 @@ function! Lambda3()
 endfunction
 
 let L = Lambda3()
-echo L(4)</code></pre>
+echo L(3)</code></pre>
 </section>
 <section class="slide level1">
 
@@ -197,6 +194,7 @@ echo L(4)</code></pre>
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
         width: 1920,
+        height: 1280,
         // Factor of the display size that should remain empty around the content
         margin: 0,
 
@@ -204,7 +202,7 @@ echo L(4)</code></pre>
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
