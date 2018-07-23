@@ -71,11 +71,10 @@
 
 <div class="margin-list20">
 
+* 2015年6月に発表された
 * ブラウザ上で実行可能なバイナリ形式
-* ブラウザに配信されるとJavaScript VMと連携して実行される
-* C/C++, Rust, Go, Java, C# → wasm
+* C/C++, Rust, Java, C#, Go → wasm
 * 2017年11月に主要ブラウザが対応している
-* 制約は多い(JavaScriptを置き換えないよ！)
 
 </div>
 
@@ -109,16 +108,62 @@ $ emrun hello.html
 
 - - -
 
-<div style="font-size:80pt;">Qt for WebAssembly</div>
+<div style="font-size:50pt;">Cで書いた関数を呼び出してみる</div>
 
-<div style="font-size:40pt;">qt/qtbase(wip/webassembly)</div>
-<div style="font-size:35pt;">qmake環境構築間に合わず・・</div>
+<div style="font-size: 60pt;">
 
-<img src="https://i.gyazo.com/ed97d4581c53f2ff58cd834e792148ba.gif" style="border:none;background:none;">
+```c
+#include <stdio.h>
+#include <emscripten/emscripten.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int EMSCRIPTEN_KEEPALIVE Uhh() {
+    printf("(」・ω ・)」うー!\n");
+    return 1;
+}
+
+int EMSCRIPTEN_KEEPALIVE Nya() {
+    printf("(/・ω ・)/にゃー!\n");
+    return 1;
+}
+
+int EMSCRIPTEN_KEEPALIVE add(int a, int b) {
+    return a + b;
+}
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+</div>
+
+- - -
+
+<div style="font-size: 50pt;">
+
+```javascript
+Module.ccall('Uhh', null, null, null);
+// (」・ω・)」うー!
+
+var result2 = Module.ccall('Nya', 'string', null, null);
+console.log(result2); // (/・ω・)/にゃー!
+
+var result3 = Module.ccall('add', 'number', ['number', 'number'], [3, 5]);
+console.log(result3); // 8
+```
+
+</div>
+
 
 - - -
 
 <div style="font-size:80pt;">Golang for WebAssembly(Go 1.11+)</div>
+
+Cだとちょっとつらいけど、GoだとライブラリのWebAssembly化捗るよね！  
 
 <div style="font-size: 60pt;">
 ```go
@@ -138,6 +183,15 @@ $ GOOS=js GOARCH=wasm go1.11beta1 build -o main.wasm main.go
 ```
 </div>
 
+
+- - -
+
+<div style="font-size:80pt;">Qt for WebAssembly</div>
+
+<div style="font-size:40pt;">qt/qtbase(wip/webassembly)</div>
+<div style="font-size:35pt;">qmake環境構築間に合わず・・</div>
+
+<img src="https://i.gyazo.com/ed97d4581c53f2ff58cd834e792148ba.gif" style="border:none;background:none;">
 
 
 - - -

@@ -1296,7 +1296,15 @@
           if (text) Module.printErr('[post-exception status] ' + text);
         };
       };
+      function hoge() {
+        var result1 = Module.ccall('Uhh', null, null, null);
+        var result2 = Module.ccall('Nya', 'string', null, null);
+        console.log(result2);
+        var result3 = Module.ccall('add', 'number', ['number', 'number'], [3, 5]);
+        console.log(result3);
+      }
     </script>
+    <button onclick="hoge();">Call Exports Func.</button>
     <script async type="text/javascript" src="hello.js"></script>
   </body>
 </html>

@@ -149,11 +149,10 @@ WebAssembly?
 </div>
 <div class="margin-list20">
 <ul>
+<li>2015年6月に発表された</li>
 <li>ブラウザ上で実行可能なバイナリ形式</li>
-<li>ブラウザに配信されるとJavaScript VMと連携して実行される</li>
-<li>C/C++, Rust, Go, Java, C# → wasm</li>
+<li>C/C++, Rust, Java, C#, Go → wasm</li>
 <li>2017年11月に主要ブラウザが対応している</li>
-<li>制約は多い(JavaScriptを置き換えないよ！)</li>
 </ul>
 </div>
 </section>
@@ -184,22 +183,55 @@ $ <span class="ex">emrun</span> hello.html</code></pre></div>
 </section>
 <section class="slide level1">
 
-<div style="font-size:80pt;">
-Qt for WebAssembly
+<div style="font-size:50pt;">
+Cで書いた関数を呼び出してみる
 </div>
-<div style="font-size:40pt;">
-qt/qtbase(wip/webassembly)
+<div style="font-size: 60pt;">
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;emscripten/emscripten.h&gt;</span>
+
+<span class="pp">#ifdef __cplusplus</span>
+<span class="kw">extern</span> <span class="st">&quot;C&quot;</span> {
+<span class="pp">#endif</span>
+
+<span class="dt">int</span> EMSCRIPTEN_KEEPALIVE Uhh() {
+    printf(<span class="st">&quot;(」・ω ・)」うー!</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">return</span> <span class="dv">1</span>;
+}
+
+<span class="dt">int</span> EMSCRIPTEN_KEEPALIVE Nya() {
+    printf(<span class="st">&quot;(/・ω ・)/にゃー!</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    <span class="cf">return</span> <span class="dv">1</span>;
+}
+
+<span class="dt">int</span> EMSCRIPTEN_KEEPALIVE add(<span class="dt">int</span> a, <span class="dt">int</span> b) {
+    <span class="cf">return</span> a + b;
+}
+
+<span class="pp">#ifdef __cplusplus</span>
+}
+<span class="pp">#endif</span></code></pre></div>
 </div>
-<div style="font-size:35pt;">
-qmake環境構築間に合わず・・
+</section>
+<section class="slide level1">
+
+<div style="font-size: 50pt;">
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Module</span>.<span class="at">ccall</span>(<span class="st">&#39;Uhh&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span>
+<span class="co">// (」・ω・)」うー!</span>
+
+<span class="kw">var</span> result2 <span class="op">=</span> <span class="va">Module</span>.<span class="at">ccall</span>(<span class="st">&#39;Nya&#39;</span><span class="op">,</span> <span class="st">&#39;string&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(result2)<span class="op">;</span> <span class="co">// (/・ω・)/にゃー!</span>
+
+<span class="kw">var</span> result3 <span class="op">=</span> <span class="va">Module</span>.<span class="at">ccall</span>(<span class="st">&#39;add&#39;</span><span class="op">,</span> <span class="st">&#39;number&#39;</span><span class="op">,</span> [<span class="st">&#39;number&#39;</span><span class="op">,</span> <span class="st">&#39;number&#39;</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">5</span>])<span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(result3)<span class="op">;</span> <span class="co">// 8</span></code></pre></div>
 </div>
-<p><img src="https://i.gyazo.com/ed97d4581c53f2ff58cd834e792148ba.gif" style="border:none;background:none;"></p>
 </section>
 <section class="slide level1">
 
 <div style="font-size:80pt;">
 Golang for WebAssembly(Go 1.11+)
 </div>
+<p>Cだとちょっとつらいけど、GoだとライブラリのWebAssembly化捗るよね！</p>
 <div style="font-size: 60pt;">
 <div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">package</span> main
 
@@ -212,6 +244,19 @@ Golang for WebAssembly(Go 1.11+)
 <div style="font-size: 60pt;">
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="va">GOOS=</span>js <span class="va">GOARCH=</span>wasm <span class="ex">go1.11beta1</span> build -o main.wasm main.go</code></pre></div>
 </div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:80pt;">
+Qt for WebAssembly
+</div>
+<div style="font-size:40pt;">
+qt/qtbase(wip/webassembly)
+</div>
+<div style="font-size:35pt;">
+qmake環境構築間に合わず・・
+</div>
+<p><img src="https://i.gyazo.com/ed97d4581c53f2ff58cd834e792148ba.gif" style="border:none;background:none;"></p>
 </section>
 <section class="slide level1">
 
