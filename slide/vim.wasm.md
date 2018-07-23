@@ -223,7 +223,7 @@ $ GOOS=js GOARCH=wasm go1.11beta1 build -o main.wasm main.go
 
 - - -
 
-<div style="font-size:80pt;">ご静聴ありがとうございました。</div>
+<div style="font-size:80pt;">ご静聴ありがとうございました！</div>
 
-<div style="font-size:40pt;">@yukpiz</div>
+<div style="font-size:45pt;">@yukpiz</div>
 
