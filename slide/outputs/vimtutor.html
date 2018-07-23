@@ -3,81 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>vimtutor</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    background-color: #2a211c;
-    color: #bdae9d;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
-div.sourceCode
-  { color: #bdae9d; background-color: #2a211c; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ffff00; } /* Alert */
-code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #44aa43; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #049b0a; } /* Char */
-code span.cn { } /* Constant */
-code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
-code span.do { color: #0066ff; font-style: italic; } /* Documentation */
-code span.dt { text-decoration: underline; } /* DataType */
-code span.dv { color: #44aa43; } /* DecVal */
-code span.er { color: #ffff00; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #44aa43; } /* Float */
-code span.fu { color: #ff9358; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
-code span.op { } /* Operator */
-code span.pp { font-weight: bold; } /* Preprocessor */
-code span.sc { color: #049b0a; } /* SpecialChar */
-code span.ss { color: #049b0a; } /* SpecialString */
-code span.st { color: #049b0a; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #049b0a; } /* VerbatimString */
-code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
@@ -121,7 +56,7 @@ WARNING
 <section class="slide level1">
 
 <figure>
-<img src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
+<img data-src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" alt="yukpiz" /><figcaption>yukpiz</figcaption>
 </figure>
 <ul>
 <li>Twitter/Github</li>
@@ -222,7 +157,7 @@ vim.wasm
 </section>
 <section class="slide level1">
 
-<pre class="vim"><code>echo has(&#39;lambda&#39;)
+<pre class="viml"><code>echo has(&#39;lambda&#39;)
 
 let Lambda1 = {x, y -&gt; x + y}
 echo Lambda1(1, 2)
@@ -236,12 +171,10 @@ function! Lambda3()
 endfunction
 
 let L = Lambda3()
-echo L(3)</code></pre>
+echo L(3)
 
 echo map([1,2,3], {idx, val -&gt; val + 1})
 echo sort([5,4,3,2,1], {a, b -&gt; a - b})</code></pre>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" data-line-number="1">i = <span class="dv">222</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">puts i + <span class="dv">333</span></a></code></pre></div>
 </section>
 <section class="slide level1">
 
@@ -277,7 +210,7 @@ echo sort([5,4,3,2,1], {a, b -&gt; a - b})</code></pre>
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
