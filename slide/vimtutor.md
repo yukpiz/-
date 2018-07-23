@@ -122,7 +122,7 @@ Company Vision: 全ての繋がりを価値あるモノに
 
 - - -
 
-```vim
+```viml
 echo has('lambda')
 
 let Lambda1 = {x, y -> x + y}
@@ -138,6 +138,9 @@ endfunction
 
 let L = Lambda3()
 echo L(3)
+
+echo map([1,2,3], {idx, val -> val + 1})
+echo sort([5,4,3,2,1], {a, b -> a - b})
 ```
 
 - - -
