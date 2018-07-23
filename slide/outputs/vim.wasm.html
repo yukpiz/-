@@ -86,6 +86,8 @@ vim.wasmがすごい
 .slide {
   margin-top: 20px;
 }
+
+.reveal pre code { display: inline; margin: 0 2px; padding: 1px 3px; }
 </style>
 </section>
 <section class="slide level1">
@@ -150,7 +152,7 @@ WebAssembly?
 <div class="margin-list20">
 <ul>
 <li>2015年6月に発表された</li>
-<li>ブラウザ上で実行可能なバイナリ形式</li>
+<li>ブラウザ上で実行可能なバイナリフォーマット</li>
 <li>C/C++, Rust, Java, C#, Go → wasm</li>
 <li>2017年11月に主要ブラウザが対応している</li>
 </ul>
@@ -161,7 +163,7 @@ WebAssembly?
 <div style="font-size:80pt;">
 C/C++ → emcc/em++ → wasm/js/html
 </div>
-<div style="font-size: 60pt;">
+<div style="font-size:60pt;">
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
 
 <span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> ** argv) {
@@ -172,7 +174,7 @@ C/C++ → emcc/em++ → wasm/js/html
 <div style="font-size:50pt;">
 ↓
 </div>
-<div style="font-size: 60pt;">
+<div style="font-size:60pt;">
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">emcc</span> hello.c -s WASM=1 -o hello.html
 $ <span class="ex">emrun</span> hello.html</code></pre></div>
 </div>
@@ -183,10 +185,10 @@ $ <span class="ex">emrun</span> hello.html</code></pre></div>
 </section>
 <section class="slide level1">
 
-<div style="font-size:50pt;">
-Cで書いた関数を呼び出してみる
+<div style="font-size:40pt;">
+Cで書いた関数をjavascriptで呼び出してみる
 </div>
-<div style="font-size: 60pt;">
+<div style="font-size:40pt;">
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;emscripten/emscripten.h&gt;</span>
 
@@ -199,9 +201,8 @@ Cで書いた関数を呼び出してみる
     <span class="cf">return</span> <span class="dv">1</span>;
 }
 
-<span class="dt">int</span> EMSCRIPTEN_KEEPALIVE Nya() {
-    printf(<span class="st">&quot;(/・ω ・)/にゃー!</span><span class="sc">\n</span><span class="st">&quot;</span>);
-    <span class="cf">return</span> <span class="dv">1</span>;
+<span class="dt">char</span> EMSCRIPTEN_KEEPALIVE *Nya() {
+    <span class="cf">return</span> <span class="st">&quot;(/・ω ・)/にゃー!</span><span class="sc">\n</span><span class="st">&quot;</span>;
 }
 
 <span class="dt">int</span> EMSCRIPTEN_KEEPALIVE add(<span class="dt">int</span> a, <span class="dt">int</span> b) {
@@ -212,10 +213,7 @@ Cで書いた関数を呼び出してみる
 }
 <span class="pp">#endif</span></code></pre></div>
 </div>
-</section>
-<section class="slide level1">
-
-<div style="font-size: 50pt;">
+<div style="font-size:40pt;">
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Module</span>.<span class="at">ccall</span>(<span class="st">&#39;Uhh&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span>
 <span class="co">// (」・ω・)」うー!</span>
 
@@ -266,8 +264,11 @@ qmake環境構築間に合わず・・
 <div class="margin-list20">
 <ul>
 <li>WebAssemblyがJavaScriptを置き換えるか？ == No</li>
+<li>WebAssemblyが何を目指しているのか、ドキュメントにしっかり書いてあった</li>
+<li>ちゃんと使ってみて勉強してみたら色々わかってきた</li>
+<li>これまでパフォーマンス面でJavaScriptで実現の大変だったところをサポート</li>
 <li>新しい技術の1つとして色んな言語やライブラリのサポートが楽しみ</li>
-<li>ぶっちゃけプロダクトに使うつもりはないけど、なんかおもろい</li>
+<li>なんかおもろい</li>
 </ul>
 </div>
 </section>
@@ -283,6 +284,15 @@ qmake環境構築間に合わず・・
 <li>OpenCV(Build cv-wasm.wasm)</li>
 <li>Golang(WebAssembly (&quot;wasm&quot;) support)</li>
 </ul>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:80pt;">
+ご静聴ありがとうございました。
+</div>
+<div style="font-size:40pt;">
+<span class="citation" data-cites="yukpiz">@yukpiz</span>
 </div>
 </section>
     </div>

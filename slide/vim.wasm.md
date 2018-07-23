@@ -15,6 +15,8 @@
 .slide {
   margin-top: 20px;
 }
+
+.reveal pre code { display: inline; margin: 0 2px; padding: 1px 3px; }
 </style>
 
 
@@ -72,7 +74,7 @@
 <div class="margin-list20">
 
 * 2015年6月に発表された
-* ブラウザ上で実行可能なバイナリ形式
+* ブラウザ上で実行可能なバイナリフォーマット
 * C/C++, Rust, Java, C#, Go → wasm
 * 2017年11月に主要ブラウザが対応している
 
@@ -82,7 +84,7 @@
 
 <div style="font-size:80pt;">C/C++ → emcc/em++ → wasm/js/html</div>
 
-<div style="font-size: 60pt;">
+<div style="font-size:60pt;">
 ```c
 #include <stdio.h>
 
@@ -95,7 +97,7 @@ int main(int argc, char ** argv) {
 
 <div style="font-size:50pt;">↓</div>
 
-<div style="font-size: 60pt;">
+<div style="font-size:60pt;">
 ```bash
 $ emcc hello.c -s WASM=1 -o hello.html
 $ emrun hello.html
@@ -108,9 +110,9 @@ $ emrun hello.html
 
 - - -
 
-<div style="font-size:50pt;">Cで書いた関数を呼び出してみる</div>
+<div style="font-size:40pt;">Cで書いた関数をjavascriptで呼び出してみる</div>
 
-<div style="font-size: 60pt;">
+<div style="font-size:40pt;">
 
 ```c
 #include <stdio.h>
@@ -125,9 +127,8 @@ int EMSCRIPTEN_KEEPALIVE Uhh() {
     return 1;
 }
 
-int EMSCRIPTEN_KEEPALIVE Nya() {
-    printf("(/・ω ・)/にゃー!\n");
-    return 1;
+char EMSCRIPTEN_KEEPALIVE *Nya() {
+    return "(/・ω ・)/にゃー!\n";
 }
 
 int EMSCRIPTEN_KEEPALIVE add(int a, int b) {
@@ -141,9 +142,7 @@ int EMSCRIPTEN_KEEPALIVE add(int a, int b) {
 
 </div>
 
-- - -
-
-<div style="font-size: 50pt;">
+<div style="font-size:40pt;">
 
 ```javascript
 Module.ccall('Uhh', null, null, null);
@@ -201,8 +200,11 @@ $ GOOS=js GOARCH=wasm go1.11beta1 build -o main.wasm main.go
 <div class="margin-list20">
 
 * WebAssemblyがJavaScriptを置き換えるか？ == No
+* WebAssemblyが何を目指しているのか、ドキュメントにしっかり書いてあった
+* ちゃんと使ってみて勉強してみたら色々わかってきた
+* これまでパフォーマンス面でJavaScriptで実現の大変だったところをサポート
 * 新しい技術の1つとして色んな言語やライブラリのサポートが楽しみ
-* ぶっちゃけプロダクトに使うつもりはないけど、なんかおもろい
+* なんかおもろい
 
 </div>
 
@@ -219,4 +221,9 @@ $ GOOS=js GOARCH=wasm go1.11beta1 build -o main.wasm main.go
 
 </div>
 
+- - -
+
+<div style="font-size:80pt;">ご静聴ありがとうございました。</div>
+
+<div style="font-size:40pt;">@yukpiz</div>
 
