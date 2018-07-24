@@ -40,8 +40,8 @@
 
 <div style="font-size:80pt;"><b>redish Inc</b></div>
 
-<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/icon_redish_radius.png" style="border:none;background:none;width:200px;height:200px;"/>
-<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_qr.png" style="border:none;background:none;width:200px;height:200;margin-left:15px;"/>
+<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_logo_rgb2.png" style="border:none;background:none;width:210px;height:210px;margin-left:-15px;"/>
+<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_qr.png" style="border:none;background:none;width:200px;height:200px;margin-left:30px;"/>
 
 <div style="font-size:35pt;"><b>レストラン予約代行のコンシェルジュサービス</b></div>
 
