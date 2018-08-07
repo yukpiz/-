@@ -1,150 +1,203 @@
-# テキストエディタ(ゔぃむ)
+<div style="font-size:120pt;">やさしいvim</div>
 
 <style>
 .margin-list20 li {
   margin-top: 20px;
+  font-size: 45pt;
 }
+
+.cl-dg {
+  color: darkgray;
+}
+
+.slide {
+  margin-top: 20px;
+}
+
+.reveal code {
+  font-size: 0.8em;
+  margin: 0px 10px 0px 10px;
+  padding: 5px 20px;
+  background-color: #424242;
+  color: #e2e2e2;
+  border: 3px solid #8a8a8a;
+  border-radius: 8px;
+}
+
+.reveal pre > code {
+  display: inline;
+  margin: 0 2px;
+  padding: 1px 3px;
+}
+
 </style>
 
 
 - - -
 
-<div style="color:yellow;font-size:80pt;">WARNING</div>
+<div style="color:yellow;font-size:120pt;">WARNING</div>
 
-このスライドが発表されているという事は、  
-発表者に既にアルコールが入っている可能性があります。  
+<div style="font-size:40pt;">
+できるだけ分かりやすく、実用的な面も含めてvimの良さをお伝えします。  
+ただし、発言の保証が効かない場合があります。  
+</div>
 
 <br/>
-<img src="https://i.gyazo.com/919022189384635187e6a1c3a545fd6a.jpg" style="width:700px;">
-
-
-- - -
-
-## Profile
+<img src="https://i.gyazo.com/919022189384635187e6a1c3a545fd6a.jpg" style="width:900px;">
 
 - - -
 
-![yukpiz](https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg)
+<div style="font-size:50pt;">PROFILE</div>
 
-* Twitter/Github
+![](https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg)
+
+<div class="margin-list20">
+
+* <span style="color:#4cd94c;">@yukpiz</span>(Twitter/Github)
 * redish Inc(Engineer)
-* \#golang #vim #crypko
-* \#AWS #Rails #Angular #Android
-* \#Fishing #Anime #小型船舶操縦士1級
+* \#<span class="cl-dg">golang</span> #<span class="cl-dg">vim</span> #<span class="cl-dg">crypko</span>
+* \#<span class="cl-dg">AWS</span> #<span class="cl-dg">Rails</span> #<span class="cl-dg">Angular</span> #<span class="cl-dg">Android</span>
+* \#<span class="cl-dg">Fishing</span> #<span class="cl-dg">Anime</span> #<span class="cl-dg">小型船舶操縦士1級</span>
 
-- - -
-
-**redish Inc**  
-
-<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/icon_redish_radius.png" style="border:none;background:none;width:130px;height:130px;"/>
-<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_qr.png" style="border:none;background:none;width:130px;height:130px;margin-left:15px;"/>
-
-#### レストラン予約代行のコンシェルジュサービス  
-
-Service Vision: レストラン体験を豊かに  
-Company Vision: 全ての繋がりを価値あるモノに  
-
-<div style="font-size:14pt;">採用もあるよ！</div>
-
-- - -
-
-# No Editor No Life.
-
-
-- - -
-
-# 所詮エディタやろ
-
-- - -
-
-<div class="margin-list20">
-* 普段の仕事とか趣味とか、とにかくワクワク感だいじ
-* 毎朝開く時にワクワクできるかどうか、どうせ毎日使うなら拘りたい
-* IDEでもエディタでもなんでもいいと思う
-* カラースキーム？キーマップ？ターミナル作業？
-</div>
-
-
-- - -
-
-<div style="font-size:80pt;">Vimのすすめ</div>
-
-
-- - -
-
-## Color Schemes
-
-
-* もちろん自分でも書けるし、公開されているカラースキーマが豊富
-* http://vimcolors.com/
-
-<img src="https://i.gyazo.com/52856f1fe6c9034b05a95386573eb99b.png">
-
-
-- - -
-
-## Key Maps
-
-
-* デフォルトで洗練されたキーマッピング
-* https://vim.rtorr.com/lang/ja/
-
-<img src="https://i.gyazo.com/e227580186cd64d2c586daf4f2433df3.png">
-
-
-- - -
-
-## Communities
-
-<div class="margin-list20">
-* vim-jp(Vim japan community)
-* VimConf 2018(redish Sponser!)
-* Meguro.vim
-* Asakusa.vim
-* あなたも*.vimできます
 </div>
 
 - - -
 
-<div style="font-size:80pt;">最近のvim</div>
+<div style="font-size:80pt;"><b>redish Inc</b></div>
+
+<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_logo_rgb2.png" style="border:none;background:none;width:210px;height:210px;margin-left:-15px;"/>
+<img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_qr.png" style="border:none;background:none;width:200px;height:200px;margin-left:30px;"/>
+
+<div style="font-size:35pt;"><b>レストラン予約代行のコンシェルジュサービス</b></div>
+
+<br/>
+<div style="font-size:30pt;">Service Vision: レストラン体験を豊かに</div>
+<div style="font-size:30pt;">Company Vision: 全ての繋がりを価値あるモノに</div>
+
+<br/>
+<div style="font-size:30pt;">採用もあるよ！</div>
 
 - - -
 
-<div style="font-size:80pt;">vim.wasm</div>
+<div style="font-size:100pt;">No Editor No Life.</div>
+<div style="font-size:50pt">golang, java, ruby, python, nodejs, typescript, terraform... :-(</div>
+
 
 - - -
 
-<div style="font-size:80pt;">+job</div>
+<div class="margin-list20">
+* 皆さんエディタ使ってますか？
+* IDEでもエディタでも拘ってみるの面白いです
+* 手に馴染んで、使いやすく、そしてモテモテに↑
+* そんな魔法のツールをご紹介します
+</div>
+
+<img src="https://i.gyazo.com/728b68a385d068c0558e56f06f4dee6d.png" style="border:none;background:none;width:800px;"/>
+
 
 - - -
 
-<div style="font-size:80pt;">+lambda</div>
+<div style="font-size:100pt;">Vimのすすめ(5-steps)</div>
 
 - - -
 
-```viml
-echo has('lambda')
+<div style="font-size:100pt;">step++</div>
 
-let Lambda1 = {x, y -> x + y}
-echo Lambda1(1, 2)
+- - -
 
-let Lambda2 = {-> 'Hello +lambda'}
-echo Lambda2()
+<div class="margin-list20">
+* 多くのディストリビューションにプリインストールされています
+* まずはターミナルで``$vim<Enter>``してみましょう
+* 文字を入力しましょう [``i`` => ``aiueo``]
+* 保存してみましょう [``<ESC>`` => ``:wq sample.txt``]
+</div>
 
-function! Lambda3()
-    let i = 1
-    return {x -> x + i}
+<img src="https://i.gyazo.com/02a620da015894b2d41120519ce76c38.gif" style="border:none;background:none;"/>
+
+- - -
+
+<div style="font-size:50pt;">
+残念ながらこれだけでは効率よく開発ができません。<br/>
+設定を書きましょう！
+</div>
+
+- - -
+
+<div style="font-size:100pt;">step++</div>
+
+- - -
+
+<div class="margin-list20">
+* ``${HOME}/.vimrc``は、vimの起動時に読み込まれる設定ファイル
+* VimScriptと呼ばれる組み込みのスクリプト言語で記述します
+* .vimrcで書けることはノーマルモードでもそのまま実行できます
+* 行番号を表示してみましょう [``<ESC>`` => ``:set number``]
+* 行番号を消してみましょう [``<ESC>`` => ``:set nonumber``]
+* 設定の意味を調べよう [``<ESC>`` => ``:help number``]
+</div>
+
+<br/>
+<div style="font-size:40pt;">0から書くのは大変、まずは誰かの.vimrcを参考にしよう！</div>
+<img src="https://i.gyazo.com/dbc05c5cd535738668f40e8c0846e6a9.png" style="width:1400px;"/>
+
+- - -
+
+<div style="font-size:50pt;">
+ここまで来ると思考のスピードに手が追いついてきます。<br/>
+さらに良くするために、プラグインを入れてみましょう！
+</div>
+
+- - -
+
+<div style="font-size:100pt;">step++</div>
+
+- - -
+
+<div class="margin-list20">
+* プラグインを入れる為のパッケージマネージャーが必要
+* 選択肢が多くありますが、拘りがなければ``dein.vim``が良い
+* .vimrcに1行記述するだけで、プラグインの導入ができるようになる
+* https://vimawesome.com/
+</div>
+
+<img src="https://i.gyazo.com/5d45685340e2010c7a0a69abf2ccdb38.png" style="width:1400px;"/>
+
+- - -
+
+<div style="font-size:50pt;">
+プラグインが使えるようになると、<br/>
+vimなしでは生きられなくなります、もう一息です<br/>
+<br/>
+次はプラグインを書いてみよう！
+</div>
+
+- - -
+
+<div style="font-size:100pt;">step++</div>
+
+- - -
+
+<div class="margin-list20">
+* VimScriptを使えば、独自のプラグインを作ったりできます
+* 以下の関数を.vimrcに書いて、``:call FizzBuzz(100)<Enter>``しよう
+</div>
+
+
+```VimScript
+function! FizzBuzz(num)
+  for i in range(1, a:num)
+    if i % 15 == 0
+      echo "FizzBuzz!"
+    elseif i % 5 == 0
+      echo "Fizz"
+    elseif i % 3 == 0
+      echo "Buzz"
+    else
+      echo i
+    endif
+  endfor
 endfunction
 
-let L = Lambda3()
-echo L(3)
-
-echo map([1,2,3], {idx, val -> val + 1})
-echo sort([5,4,3,2,1], {a, b -> a - b})
 ```
-
-- - -
-
-<div style="font-size:80pt;">+channel</div>
 
 - - -
