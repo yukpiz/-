@@ -1,5 +1,8 @@
 <div style="font-size:120pt;">やさしいvim</div>
 
+
+<img src="https://i.gyazo.com/ce86b03451c798c172d7498afe4f5c2f.png" style="border:none;background:none;width:500px;"/>
+
 <style>
 .margin-list20 li {
   margin-top: 20px;
@@ -14,7 +17,7 @@
   margin-top: 20px;
 }
 
-.reveal code {
+.reveal li code {
   font-size: 0.8em;
   margin: 0px 10px 0px 10px;
   padding: 5px 20px;
@@ -24,10 +27,12 @@
   border-radius: 8px;
 }
 
-.reveal pre > code {
+.reveal pre code {
   display: inline;
   margin: 0 2px;
   padding: 1px 3px;
+  font-size: 2em;
+  line-height: 1.2em;
 }
 
 </style>
@@ -183,7 +188,7 @@ vimなしでは生きられなくなります、もう一息です<br/>
 </div>
 
 
-```VimScript
+```vim
 function! FizzBuzz(num)
   for i in range(1, a:num)
     if i % 15 == 0

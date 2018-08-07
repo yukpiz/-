@@ -16,7 +16,11 @@
   margin-top: 20px;
 }
 
-.reveal pre code { display: inline; margin: 0 2px; padding: 1px 3px; }
+.reveal pre code {
+  display: inline;
+  margin: 0 2px;
+  padding: 1px 3px;
+}
 </style>
 
 
