@@ -32,7 +32,14 @@
   margin: 0 2px;
   padding: 1px 3px;
   font-size: 2em;
-  line-height: 1.2em;
+  line-height: 1.3em;
+}
+
+.reveal pre.vim {
+  background-color: #424242;
+  border: 3px solid #8a8a8a;
+  border-radius: 8px;
+  padding: 20px 20px;
 }
 
 </style>
@@ -102,7 +109,7 @@
 
 - - -
 
-<div style="font-size:100pt;">Vimのすすめ(5-steps)</div>
+<div style="font-size:100pt;">Vimのすすめ(5 steps)</div>
 
 - - -
 
@@ -202,7 +209,6 @@ function! FizzBuzz(num)
     endif
   endfor
 endfunction
-
 ```
 
 - - -
