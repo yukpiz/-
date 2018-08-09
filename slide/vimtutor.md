@@ -1,6 +1,5 @@
 <div style="font-size:120pt;">やさしいvim</div>
 
-
 <img src="https://i.gyazo.com/ce86b03451c798c172d7498afe4f5c2f.png" style="border:none;background:none;width:500px;"/>
 
 <style>
@@ -87,14 +86,10 @@
 
 <img src="https://i.gyazo.com/8a02d4e82e446e3db3dbb302c7ddc7f2.png" style="background:none;width:1000px;"/>
 
-<br/>
-<div style="font-size:30pt;">採用もあるよ！</div>
-
 - - -
 
 <div style="font-size:100pt;">No Editor No Life.</div>
 <div style="font-size:50pt">golang, java, ruby, python, nodejs, typescript, terraform... :-(</div>
-
 
 - - -
 
@@ -114,7 +109,7 @@
 
 <div class="margin-list20">
 * viから派生した高機能テキストエディタ
-* オランダ人プログラマーのブラムによって開発された(1988年)
+* オランダ人プログラマーのBramによって開発された(1988年)
 * Vi IMproved(viの改良)である
 * キーボードのみで操作される事が前提となっている
 * 現在も活発に開発が行われている
@@ -133,7 +128,7 @@
 
 <div class="margin-list20">
 * 多くのディストリビューションにプリインストールされています
-* まずはターミナルで``$vim<Enter>``してみましょう
+* まずはターミナルで``vim<Enter>``してみましょう
 * 文字を入力しましょう [``i`` => ``aiueo``]
 * 保存してみましょう [``<ESC>`` => ``:wq sample.txt``]
 </div>
@@ -226,3 +221,18 @@ endfunction
 ```
 
 - - -
+
+<div style="font-size:100pt;">まとめ</div>
+
+- - -
+
+<div class="margin-list20">
+* テキストエディタ楽しい
+* 新しい言語を書くのもスムーズに
+* 洗練されたキーストロークで効率よくコーディング
+* コミュニティも面白い(Meguro.vim, Asakusa.vim)
+</div>
+
+- - -
+
+<div style="font-size:100pt;">:wq</div>

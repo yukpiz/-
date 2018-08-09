@@ -3,12 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title></title>
+  <title>vimtutor</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -90,9 +95,7 @@ WARNING
 <div style="font-size:50pt;">
 PROFILE
 </div>
-<figure>
-<img src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" />
-</figure>
+<p><img data-src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" /></p>
 <div class="margin-list20">
 <ul>
 <li><span style="color:#4cd94c;"><span class="citation" data-cites="yukpiz">@yukpiz</span></span>(Twitter/Github)</li>
@@ -117,10 +120,6 @@ PROFILE
 VimConf 2018 Sponsor
 </div>
 <p><img src="https://i.gyazo.com/8a02d4e82e446e3db3dbb302c7ddc7f2.png" style="background:none;width:1000px;"/></p>
-<br/>
-<div style="font-size:30pt;">
-採用もあるよ！
-</div>
 </section>
 <section class="slide level1">
 
@@ -128,7 +127,7 @@ VimConf 2018 Sponsor
 No Editor No Life.
 </div>
 <div style="font-size:50pt">
-golang, java, ruby, python, nodejs, typescript, terraform... :-(
+golang, java, ruby, python, nodejs, typescript, terraform… :-(
 </div>
 </section>
 <section class="slide level1">
@@ -151,7 +150,7 @@ golang, java, ruby, python, nodejs, typescript, terraform... :-(
 <div class="margin-list20">
 <ul>
 <li>viから派生した高機能テキストエディタ</li>
-<li>オランダ人プログラマーのブラムによって開発された(1988年)</li>
+<li>オランダ人プログラマーのBramによって開発された(1988年)</li>
 <li>Vi IMproved(viの改良)である</li>
 <li>キーボードのみで操作される事が前提となっている</li>
 <li>現在も活発に開発が行われている</li>
@@ -176,7 +175,7 @@ step++
 <div class="margin-list20">
 <ul>
 <li>多くのディストリビューションにプリインストールされています</li>
-<li>まずはターミナルで<code>$vim&lt;Enter&gt;</code>してみましょう</li>
+<li>まずはターミナルで<code>vim&lt;Enter&gt;</code>してみましょう</li>
 <li>文字を入力しましょう [<code>i</code> =&gt; <code>aiueo</code>]</li>
 <li>保存してみましょう [<code>&lt;ESC&gt;</code> =&gt; <code>:wq sample.txt</code>]</li>
 </ul>
@@ -273,6 +272,26 @@ endfunction</code></pre>
 </section>
 <section class="slide level1">
 
+<div style="font-size:100pt;">
+まとめ
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>テキストエディタ楽しい</li>
+<li>新しい言語を書くのもスムーズに</li>
+<li>洗練されたキーストロークで効率よくコーディング</li>
+<li>コミュニティも面白い(Meguro.vim, Asakusa.vim)</li>
+</ul>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+:wq
+</div>
 </section>
     </div>
   </div>
@@ -299,7 +318,7 @@ endfunction</code></pre>
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
