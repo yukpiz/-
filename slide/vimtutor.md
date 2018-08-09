@@ -83,8 +83,9 @@
 <div style="font-size:35pt;"><b>レストラン予約代行のコンシェルジュサービス</b></div>
 
 <br/>
-<div style="font-size:30pt;">Service Vision: レストラン体験を豊かに</div>
-<div style="font-size:30pt;">Company Vision: 全ての繋がりを価値あるモノに</div>
+<div style="font-size:30pt;">VimConf 2018 Sponsor</div>
+
+<img src="https://i.gyazo.com/8a02d4e82e446e3db3dbb302c7ddc7f2.png" style="background:none;width:1000px;"/>
 
 <br/>
 <div style="font-size:30pt;">採用もあるよ！</div>
@@ -109,7 +110,20 @@
 
 - - -
 
-<div style="font-size:100pt;">Vimのすすめ(5 steps)</div>
+<div style="font-size:100pt;">そもそもvimって</div>
+
+<div class="margin-list20">
+* viから派生した高機能テキストエディタ
+* オランダ人プログラマーのブラムによって開発された(1988年)
+* Vi IMproved(viの改良)である
+* キーボードのみで操作される事が前提となっている
+* 現在も活発に開発が行われている
+* jobの非同期実行、ターミナル機能、ラムダ構文(VimL)などが追加
+</div>
+
+- - -
+
+<div style="font-size:100pt;">Vimのすすめ(4 steps)</div>
 
 - - -
 
@@ -150,7 +164,7 @@
 
 <br/>
 <div style="font-size:40pt;">0から書くのは大変、まずは誰かの.vimrcを参考にしよう！</div>
-<img src="https://i.gyazo.com/dbc05c5cd535738668f40e8c0846e6a9.png" style="width:1400px;"/>
+<img src="https://i.gyazo.com/4c32c90968e01c8cda0e666472c1f899.png" style="width:1400px;"/>
 
 - - -
 
