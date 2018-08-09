@@ -7,12 +7,13 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/api/option"
 	"log"
+	"time"
 )
 
 func main() {
-	opt := option.WithCredentialsFile("../../../../../Downloads/project-dev-firebase-adminsdk-hjd6d-11249c6fca.json")
+	opt := option.WithCredentialsFile("./redish-dev-firebase-adminsdk-hjd6d-91e202b209.json")
 	config := &firebase.Config{
-		DatabaseURL: "https://project-dev.firebaseio.com/",
+		DatabaseURL: "https://redish-dev.firebaseio.com/",
 	}
 
 	ctx := context.Background()
@@ -27,9 +28,14 @@ func main() {
 	log.Println(client)
 
 	//ref(client)
-	//set(client)
-	//push(client)
-	//update(client)
+	//set1(client)
+	//set2(client) //rooms
+	//push1(client) //messages
+	update1(client)
+	//get1(client)
+	//get2(client)
+	//get3(client)
+	//get4(client)
 
 	//transaction1(client)
 	//transaction2(client)
@@ -56,34 +62,48 @@ func ref(client *firebasedb.Client) {
 	// &{-LIIk8kp2HLKobUA-kxc /messages/room_key1/message_id/text/-LIIk8kp2HLKobUA-kxc [messages room_key1 message_id text -LIIk8kp2HLKobUA-kxc] 0xc4201acb10}
 }
 
-func push(client *firebasedb.Client) {
+func push1(client *firebasedb.Client) {
 	type Message struct {
-		Text string `json:"text"`
+		UserId int    `json:"user_id"`
+		Text   string `json:"text"`
 	}
 
-	ref := client.NewRef("messages/room_key1")
-	message1 := Message{
-		Text: "text1",
+	ref := client.NewRef("messages/room_key")
+	for i := 1; i <= 3; i += 1 {
+		message := Message{
+			UserId: i,
+			Text:   fmt.Sprintf("text%d", i),
+		}
+		childRef, err := ref.Push(context.Background(), message)
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Println(childRef)
 	}
-	childRef1, err := ref.Push(context.Background(), message1)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println(childRef1)
-	// &{-LIGxTD7kFRpywkYiBbf /messages/room_key1/-LIGxTD7kFRpywkYiBbf [messages room_key1 -LIGxTD7kFRpywkYiBbf] 0xc420192e10}
-
-	message2 := Message{
-		Text: "text2",
-	}
-	childRef2, err := ref.Push(context.Background(), message2)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println(childRef2)
-	// &{-LIGxTFjzYnI58lJ9ymB /messages/room_key1/-LIGxTFjzYnI58lJ9ymB [messages room_key1 -LIGxTFjzYnI58lJ9ymB] 0xc420192e10}
 }
 
-func set(client *firebasedb.Client) {
+func set2(client *firebasedb.Client) {
+	type Room struct {
+		PartnerId       int    `json:"partner_id"`
+		LastMessageText string `json:"last_message_text"`
+	}
+
+	ref := client.NewRef("rooms")
+	rooms := map[string]Room{}
+	for i := 1; i <= 3; i += 1 {
+		room := Room{
+			PartnerId:       i + 10,
+			LastMessageText: fmt.Sprintf("text%d", i),
+		}
+		rooms[fmt.Sprintf("user%d", i)] = room
+	}
+	err := ref.Set(context.Background(), rooms)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func set1(client *firebasedb.Client) {
 	type Message struct {
 		MessageId int    `json:"message_id"`
 		Text      string `json:"text"`
@@ -109,98 +129,140 @@ func set(client *firebasedb.Client) {
 	}
 }
 
-func update(client *firebasedb.Client) {
-	type Message struct {
-		Text string `json:"text"`
+func update1(client *firebasedb.Client) {
+	ref := client.NewRef("rooms/user1")
+	err := ref.Update(context.Background(), map[string]interface{}{
+		"last_message_text": "updated!",
+	})
+	if err != nil {
+		log.Fatal(err)
 	}
-
-	//ref := client.NewRef("messages/room_key1")
-	//messages := map[string]Message{
-	//	"message1": Message{
-	//		Text: "text1",
-	//	},
-	//	"message2": Message{
-	//		Text: "text2",
-	//	},
-	//}
-	//messages := map[string]string{
-	//	"message1": "text1",
-	//	"message2": "text2",
-	//}
-	//err := ref.Update(context.Background(), messages)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
 }
 
 func transaction1(client *firebasedb.Client) {
-	log.Println("Start!")
-
-	type Message struct {
-		MessageId      int    `json:"message_id"`
-		Text           string `json:"text"`
-		OptionalField1 string `json:"optional_field1"`
-		OptionalField2 int    `json:"optional_field2"`
-		OptionalField3 bool   `json:"optional_field3"`
+	type Room struct {
+		PartnerId       int    `json:"partner_id"`
+		LastMessageText string `json:"last_message_text"`
 	}
-	ref := client.NewRef("test/transaction/messages1")
 
-	// Push message 1
-	ref.Push(context.Background(), Message{
-		MessageId: 1,
-		Text:      "Test Message1",
-	})
-
-	// Push message 2
-	ref.Push(context.Background(), Message{
-		MessageId: 2,
-		Text:      "Test Message2",
-	})
+	ref := client.NewRef("rooms")
 
 	transaction := func(node firebasedb.TransactionNode) (interface{}, error) {
-		var messages map[string]Message
-		node.Unmarshal(&messages)
+		var rooms map[string]Room
+		node.Unmarshal(&rooms)
 
-		log.Printf("%+v\n", messages)
-		return messages, nil
+		newRoom := Room{
+			PartnerId:       14,
+			LastMessageText: "これはトランザクションで追加されたデータ",
+		}
+		rooms["user4"] = newRoom
+		return rooms, nil
 	}
 
-	ref.Transaction(context.Background(), transaction)
-	log.Println("Finished!")
+	err := ref.Transaction(context.Background(), transaction)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func transaction2(client *firebasedb.Client) {
-	log.Println("Start!")
-
-	type Message struct {
-		MessageId      int     `json:"message_id"`
-		Text           string  `json:"text"`
-		OptionalField1 *string `json:"optional_field1"`
-		OptionalField2 *int    `json:"optional_field2"`
-		OptionalField3 *bool   `json:"optional_field3"`
+	type Room struct {
+		PartnerId       int    `json:"partner_id"`
+		LastMessageText string `json:"last_message_text"`
 	}
-	ref := client.NewRef("test/transaction/messages2")
 
-	// Push message 1
-	ref.Push(context.Background(), Message{
-		MessageId: 1,
-		Text:      "Test Message1",
-	})
-
-	// Push message 2
-	ref.Push(context.Background(), Message{
-		MessageId: 2,
-		Text:      "Test Message2",
-	})
+	ref := client.NewRef("rooms")
 
 	transaction := func(node firebasedb.TransactionNode) (interface{}, error) {
-		var messages map[string]Message
-		node.Unmarshal(&messages)
+		time.Sleep(3 * time.Second) //トランザクションに時間をかける為のSleep()
+		var rooms map[string]Room
+		node.Unmarshal(&rooms)
 
-		log.Printf("%+v\n", messages)
-		return messages, nil
+		newRoom := Room{
+			PartnerId:       14,
+			LastMessageText: "これはトランザクションで更新されたデータ",
+		}
+		rooms["user4"] = newRoom
+		return rooms, nil
 	}
 
-	ref.Transaction(context.Background(), transaction)
-	log.Println("Finished!")
+	go ref.Transaction(context.Background(), transaction)
+	// push
+	time.Sleep(3 * time.Second)
+}
+
+func get1(client *firebasedb.Client) {
+	type Message struct {
+		UserId int    `json:"user_id"`
+		Text   string `json:"text"`
+	}
+
+	var messages map[string]Message
+	ref := client.NewRef("messages/room_key")
+	err := ref.Get(context.Background(), &messages)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for key, message := range messages {
+		fmt.Printf("%s: %+v\n", key, message)
+	}
+}
+
+func get2(client *firebasedb.Client) {
+	type Message struct {
+		UserId int    `json:"user_id"`
+		Text   string `json:"text"`
+	}
+
+	ref := client.NewRef("messages/room_key")
+	results, err := ref.OrderByChild("user_id").GetOrdered(context.Background())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, result := range results {
+		var message Message
+		err := result.Unmarshal(&message)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		log.Printf("%s: %+v\n", result.Key(), message)
+	}
+}
+
+func get3(client *firebasedb.Client) {
+	type Message struct {
+		UserId int    `json:"user_id"`
+		Text   string `json:"text"`
+	}
+
+	var messages map[string]Message
+	ref := client.NewRef("messages/room_key")
+	err := ref.OrderByChild("text").Get(context.Background(), &messages)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for key, message := range messages {
+		log.Printf("%s: %+v\n", key, message)
+	}
+}
+
+func get4(client *firebasedb.Client) {
+	type Message struct {
+		UserId int    `json:"user_id"`
+		Text   string `json:"text"`
+	}
+
+	var messages map[string]Message
+	ref := client.NewRef("messages/room_key")
+	err := ref.OrderByChild("user_id").EqualTo(2).Get(context.Background(), &messages)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for key, message := range messages {
+		log.Printf("%s: %+v\n", key, message)
+	}
 }
