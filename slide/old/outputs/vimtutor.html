@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level1">
+
+<div style="font-size:120pt;">
+やさしいvim
+</div>
+<p><img src="https://i.gyazo.com/ce86b03451c798c172d7498afe4f5c2f.png" style="border:none;background:none;width:500px;"/></p>
+<style>
+.margin-list20 li {
+  margin-top: 20px;
+  font-size: 45pt;
+}
+
+.cl-dg {
+  color: darkgray;
+}
+
+.slide {
+  margin-top: 20px;
+}
+
+.reveal li code {
+  font-size: 0.8em;
+  margin: 0px 10px 0px 10px;
+  padding: 5px 20px;
+  background-color: #424242;
+  color: #e2e2e2;
+  border: 3px solid #8a8a8a;
+  border-radius: 8px;
+}
+
+.reveal pre code {
+  display: inline;
+  margin: 0 2px;
+  padding: 1px 3px;
+  font-size: 2em;
+  line-height: 1.3em;
+}
+
+.reveal pre.vim {
+  background-color: #424242;
+  border: 3px solid #8a8a8a;
+  border-radius: 8px;
+  padding: 20px 20px;
+}
+
+</style>
+</section>
+<section class="slide level1">
+
+<div style="color:yellow;font-size:120pt;">
+WARNING
+</div>
+<div style="font-size:40pt;">
+<p>できるだけ分かりやすく、実用的な面も含めてvimの良さをお伝えします。<br />
+ただし、発言の保証が効かない場合があります。</p>
+</div>
+<p><br/> <img src="https://i.gyazo.com/919022189384635187e6a1c3a545fd6a.jpg" style="width:900px;"></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:50pt;">
+PROFILE
+</div>
+<figure>
+<img src="https://pbs.twimg.com/profile_images/1009090611108982785/s13PS89H_400x400.jpg" />
+</figure>
+<div class="margin-list20">
+<ul>
+<li><span style="color:#4cd94c;"><span class="citation" data-cites="yukpiz">@yukpiz</span></span>(Twitter/Github)</li>
+<li>redish Inc(Engineer)</li>
+<li>#<span class="cl-dg">golang</span> #<span class="cl-dg">vim</span> #<span class="cl-dg">crypko</span></li>
+<li>#<span class="cl-dg">AWS</span> #<span class="cl-dg">Rails</span> #<span class="cl-dg">Angular</span> #<span class="cl-dg">Android</span></li>
+<li>#<span class="cl-dg">Fishing</span> #<span class="cl-dg">Anime</span> #<span class="cl-dg">小型船舶操縦士1級</span></li>
+</ul>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:80pt;">
+<b>redish Inc</b>
+</div>
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_logo_rgb2.png" style="border:none;background:none;width:210px;height:210px;margin-left:-15px;"/> <img src="https://s3-ap-northeast-1.amazonaws.com/assets.redish.jp/redish/redish_qr.png" style="border:none;background:none;width:200px;height:200px;margin-left:30px;"/></p>
+<div style="font-size:35pt;">
+<b>レストラン予約代行のコンシェルジュサービス</b>
+</div>
+<br/>
+<div style="font-size:30pt;">
+VimConf 2018 Sponsor
+</div>
+<p><img src="https://i.gyazo.com/8a02d4e82e446e3db3dbb302c7ddc7f2.png" style="background:none;width:1000px;"/></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+No Editor No Life.
+</div>
+<div style="font-size:50pt">
+golang, java, ruby, python, nodejs, typescript, terraform... :-(
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>皆さんエディタ使ってますか？</li>
+<li>IDEでもエディタでも拘ってみるの面白いです</li>
+<li>手に馴染んで、使いやすく、そしてモテモテに↑</li>
+<li>そんな魔法のツールをご紹介します</li>
+</ul>
+</div>
+<p><img src="https://i.gyazo.com/728b68a385d068c0558e56f06f4dee6d.png" style="border:none;background:none;width:800px;"/></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+そもそもvimって
+</div>
+<div class="margin-list20">
+<ul>
+<li>viから派生した高機能テキストエディタ</li>
+<li>オランダ人プログラマーのBramによって開発された(1988年)</li>
+<li>Vi IMproved(viの改良)である</li>
+<li>キーボードのみで操作される事が前提となっている</li>
+<li>現在も活発に開発が行われている</li>
+<li>jobの非同期実行、ターミナル機能、ラムダ構文(VimL)などが追加</li>
+</ul>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+Vimのすすめ(4 steps)
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+step++
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>多くのディストリビューションにプリインストールされています</li>
+<li>まずはターミナルで<code>vim&lt;Enter&gt;</code>してみましょう</li>
+<li>文字を入力しましょう [<code>i</code> =&gt; <code>aiueo</code>]</li>
+<li>保存してみましょう [<code>&lt;ESC&gt;</code> =&gt; <code>:wq sample.txt</code>]</li>
+</ul>
+</div>
+<p><img src="https://i.gyazo.com/02a620da015894b2d41120519ce76c38.gif" style="border:none;background:none;"/></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:50pt;">
+<p>残念ながらこれだけでは効率よく開発ができません。<br/> 設定を書きましょう！</p>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+step++
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li><code>${HOME}/.vimrc</code>は、vimの起動時に読み込まれる設定ファイル</li>
+<li>VimScriptと呼ばれる組み込みのスクリプト言語で記述します</li>
+<li>.vimrcで書けることはノーマルモードでもそのまま実行できます</li>
+<li>行番号を表示してみましょう [<code>&lt;ESC&gt;</code> =&gt; <code>:set number</code>]</li>
+<li>行番号を消してみましょう [<code>&lt;ESC&gt;</code> =&gt; <code>:set nonumber</code>]</li>
+<li>設定の意味を調べよう [<code>&lt;ESC&gt;</code> =&gt; <code>:help number</code>]</li>
+</ul>
+</div>
+<br/>
+<div style="font-size:40pt;">
+0から書くのは大変、まずは誰かの.vimrcを参考にしよう！
+</div>
+<p><img src="https://i.gyazo.com/4c32c90968e01c8cda0e666472c1f899.png" style="width:1400px;"/></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:50pt;">
+<p>ここまで来ると思考のスピードに手が追いついてきます。<br/> さらに良くするために、プラグインを入れてみましょう！</p>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+step++
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>プラグインを入れる為のパッケージマネージャーが必要</li>
+<li>選択肢が多くありますが、拘りがなければ<code>dein.vim</code>が良い</li>
+<li>.vimrcに1行記述するだけで、プラグインの導入ができるようになる</li>
+<li>https://vimawesome.com/</li>
+</ul>
+</div>
+<p><img src="https://i.gyazo.com/5d45685340e2010c7a0a69abf2ccdb38.png" style="width:1400px;"/></p>
+</section>
+<section class="slide level1">
+
+<div style="font-size:50pt;">
+<p>プラグインが使えるようになると、<br/> vimなしでは生きられなくなります、もう一息です<br/> <br/> 次はプラグインを書いてみよう！</p>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+step++
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>VimScriptを使えば、独自のプラグインを作ったりできます</li>
+<li>以下の関数を.vimrcに書いて、<code>:call FizzBuzz(100)&lt;Enter&gt;</code>しよう</li>
+</ul>
+</div>
+<pre class="vim"><code>function! FizzBuzz(num)
+  for i in range(1, a:num)
+    if i % 15 == 0
+      echo &quot;FizzBuzz!&quot;
+    elseif i % 5 == 0
+      echo &quot;Fizz&quot;
+    elseif i % 3 == 0
+      echo &quot;Buzz&quot;
+    else
+      echo i
+    endif
+  endfor
+endfunction</code></pre>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+まとめ
+</div>
+</section>
+<section class="slide level1">
+
+<div class="margin-list20">
+<ul>
+<li>テキストエディタ楽しい</li>
+<li>新しい言語を書くのもスムーズに</li>
+<li>洗練されたキーストロークで効率よくコーディング</li>
+<li>コミュニティも面白い(Meguro.vim, Asakusa.vim)</li>
+</ul>
+</div>
+</section>
+<section class="slide level1">
+
+<div style="font-size:100pt;">
+:wq
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+        height: 1280,
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
