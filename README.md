@@ -1,5 +1,11 @@
 # Today I Learned
 
+# Build
+
+```bash
+$ go run build.go -t .
+```
+
 # Yearly
 |Year|LinesCount|CharCount|
 |:---:|---:|---:|
