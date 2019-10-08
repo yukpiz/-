@@ -1,0 +1,20 @@
+# Today I Learned
+
+# Yearly
+|Year|LinesCount|CharCount|
+|:---:|---:|---:|
+{{ range .YearSummaries }}|{{ .Year }}|{{ .LinesCount }}|{{ .CharCount }}|
+{{ end }}
+
+# Monthly
+|Month|LinesCount|CharCount|
+|:---:|---:|---:|
+{{ range .MonthSummaries }}|{{ .YM }}|{{ .LinesCount }}|{{ .CharCount }}|
+{{ end }}
+
+# Daily
+
+|Date|LinesCount|CharCount|
+|:---:|---:|---:|
+{{ range .Entities }}|{{ .YMD }}|{{ .LinesCount }}|{{ .CharCount }}|
+{{ end }}
